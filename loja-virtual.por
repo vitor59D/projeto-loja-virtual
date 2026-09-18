@@ -80,3 +80,29 @@ escolha(opcao_menu_principal)
   se (opcao_crud = 1)
   {
   se (quantidade_temp > 0 e quantidade_temp <= estoque_prod1) {
+    }
+
+  escreva ("Pressione ENTER para voltar ao menu...")
+  leia(tecla_pausa)
+  pare
+
+  //=================================================
+  // U UPDATE (Atualizar Quantidade no Carrinho)
+  //=================================================
+  }
+   senao {
+       escreva("Produro invalido1! ")
+
+
+   }
+       escreva("Pressione ENTER para voltar ao menu...")
+         leia(tecla_pausa)
+       pare
+
+
+       // ================================================
+       // R -READ (Visualizar o Carrinho)
+       // ================================================
+       caso 2:
+          limpa()
+          escreva("--- MEU CARRINHO DE COMPRAS ---")
