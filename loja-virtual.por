@@ -106,3 +106,14 @@ escolha(opcao_menu_principal)
        caso 2:
           limpa()
           escreva("--- MEU CARRINHO DE COMPRAS ---")
+           } senao {
+   escreva("Quantidade inválida ou estoque insuficiente!")
+    }
+    } 
+    senao se (opcao_crud == 3) 
+    {se (quantidade_temp > 0 e quantidade_temp <= estoque_prod3) {
+    qtd_carrinho_prod3 = qtd_carrinho_prod3 + quantidade_temp     estoque_prod3 = estoque_prod3 - quantidade_temp
+    escreva("Item adicionado ao carrinho com sucesso!")
+    } senao {
+      escreva("Quantidade inválida ou estoque insuficiente!")
+    }
