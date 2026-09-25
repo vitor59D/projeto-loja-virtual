@@ -255,3 +255,18 @@ escolha(opcao_menu_principal)
                     1. Pagamento via PIX (10% de desconto)")
                      escreva("
                         2. Cartoo de Cred ito (Valor normal)")
+                           escreva("
+                       Escolha a forma de pagamento: ")
+                            leia(opcao_pagamento)
+                {
+                        caso 1:
+                      valor_desconto = valor_total_bruto * 0.10
+                      valor_final = 0.0
+                      pare
+                      caso 2:
+                      valor_desconto = 0.0
+                      valor_final = valor_total_bruto
+                      pare
+                      caso contratio:
+                         escreva("
+  opcao invalida! Processando valor normal.
