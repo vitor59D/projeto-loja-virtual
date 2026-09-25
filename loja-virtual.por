@@ -32,7 +32,7 @@ programa {
       escreva("=== BEM VINDO À NOSSA LOJA VIRTUAL ===")
 
       escreva("------------------------------------------")
-      escreva("MENU PRINCIPAL
+      escreva("MENU PRINCIPAL")
        escreva("1. Ver Produtos e Adicionar ao Carrinho (CREATE)")
 
 
@@ -183,4 +183,19 @@ escolha(opcao_menu_principal)
                                    escreva("")
             }
      }
+                               Quantidade invalida ou acima do estoque disponivel!")
+		                    }
+	                  }
+	                  senao {
+		                    escreva("Opção inválida!")
+	                  }
+
+	                  escreva("Pressione ENTER para voltar ao menu...")
+	                  leia(tecla_pausa)
+	                  pare
+
+                // ===============================================
+                // D - DELETE (Remover Item do Carrinho)
+                // ===============================================
+                caso 4:
      
