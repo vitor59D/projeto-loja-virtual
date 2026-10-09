@@ -27,6 +27,7 @@ programa {
     // 1. LAÇO PRINCIPAL DO SISTEMA
     enquanto (opcao_menu_principal !=0){
       // Limpa a tela a cada iteração para manter o menu organizado
+
       limpa()
 
       escreva("=== BEM VINDO À NOSSA LOJA VIRTUAL ===")
@@ -61,17 +62,15 @@ escolha(opcao_menu_principal)
 
      caso 1:
 
-  limpa ()
+  limpa()
 
-  escreva("--- CATÁLOGO DE PRODUTOS ---")
+escreva("--- CATÁLOGO DE PRODUTOS ---")
 
-  escreva ("1. Camisa Esportiva (Estoque: ", estoque_prod1, ") R$", preco")
+escreva("\n1. Camisa Esportiva (Estoque: ", estoque_prod1, ") R$ ", preco_prod1)
+escreva("\n2. Boné Casual (Estoque: ", estoque_prod2, ") R$ ", preco_prod2)
+escreva("\n3. Tênis de Corrida (Estoque: ", estoque_prod3, ") R$ ", preco_prod3)
 
-  escreva ("2. Boné Casual (Estoque:", estoque_prod2, ") R$", preco")
-
-  escreva ("3. Tênis de Corrida (Estoque: ", estoque_prod3, ") R$", preco")
-
-  escreva ("Escolha o produto que deseja adicionar: ")
+escreva("\nEscolha o produto que deseja adicionar: ")
 
   leia(opcao_crud)
 
