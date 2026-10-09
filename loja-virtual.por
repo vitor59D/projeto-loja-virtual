@@ -289,6 +289,11 @@ escolha(opcao_menu_principal)
    se (qtd_carrinho_prod1 > 0) {
        escreva("- "),qtd_carrinho_prod1, "x Camisa Esportiva = R$ "qtd_carrinho_p
    }
-   
+
+  }
+    }
+  se (qtd_carrinho_prod2 > 0){
+    escreva("-", qtd_carrinho_prod2, "x bone casual = R$ ", (qtd_carrinho_prod2))
+  }
   }
 
