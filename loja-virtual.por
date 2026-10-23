@@ -102,20 +102,34 @@ programa {
           leia(tecla_pausa)
           pare
 
-  //=================================================
-  // U UPDATE (Atualizar Quantidade no Carrinho)
-  //=================================================
-  }
-   senao {
-       escreva("Produro invalido1! ")
+        // ===================================================
+        // R - READ (Visualizar o Carrinho)
+        // ===================================================
+        caso 2:
+          limpa()
+          escreva("--- MEU CARRINHO DE COMPRAS ---\n")
+          se (qtd_carrinho_prod1 == 0 e qtd_carrinho_prod2 == 0 e qtd_carrinho_prod3 == 0)
+          {
+            escreva("Seu carrinho está vazio.\n")
+          }
+          senao
+          {
+            se (qtd_carrinho_prod1 > 0) {
+              escreva("- \n", qtd_carrinho_prod1, "x Camisa Esportiva (R$ \n", (qtd_carrinho_prod1 * preco_prod1), "\n")
+            }
+            se (qtd_carrinho_prod2 > 0) {
+              escreva("- \n", qtd_carrinho_prod2, "x Boné Casual (R$ ", (qtd_carrinho_prod2 * preco_prod2), "\n")
+            }
+            se (qtd_carrinho_prod3 > 0) {
+              escreva("- \n", qtd_carrinho_prod3, "x Tênis de Corrida (R$ \n", (qtd_carrinho_prod3 * preco_prod3), "\n")
+            }
+          }
 
 
-   }
-       escreva("Pressione ENTER para voltar ao menu...")
-         leia(tecla_pausa)
-       pare
-
-
+          escreva("Pressione ENTER para voltar ao menu...\n")
+          leia(tecla_pausa)
+          pare
+          
        // ================================================
        // R -READ (Visualizar o Carrinho)
        // ================================================
