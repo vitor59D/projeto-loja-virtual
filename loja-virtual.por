@@ -130,14 +130,6 @@ programa {
           leia(tecla_pausa)
           pare
 
-       // ================================================
-       // R -READ (Visualizar o Carrinho)
-       // ================================================
-
-
-
-
-
 
        // ===================================================
         // U - UPDATE (Atualizar Quantidade no Carrinho)
