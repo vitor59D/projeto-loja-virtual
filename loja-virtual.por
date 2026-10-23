@@ -204,107 +204,143 @@ programa {
           escreva("Pressione ENTER para voltar ao menu...\n")
           leia(tecla_pausa)
           pare
-          
-                // ===============================================
-                // D - DELETE (Remover Item do Carrinho)
-                // ===============================================
-                caso 4:
-     
-                              limpa()
-                                escreva("--- REMOVER ITEM DO CARRINHO ---")
 
-                              escreva("1. Camisa esportiva (no carrinho ", qtd_carrinho_prod1 ,)")
+        // ===================================================
+        // D - DELETE (Remover Item do Carrinho)
+        // ===================================================
+         caso 4:
+          limpa()
+          escreva("--- REMOVER ITEM DO CARRINHO ---\n")
 
-                              escreva("2. Bone casual  (no carrinho ", qtd_carrinho_prod2 ,)")
+          escreva("1. Camisa Esportiva (No carrinho: ", qtd_carrinho_prod1, "\n")
 
-                             escreva("3. Tenis de corrida (no carrinho ", qtd_carrinho_prod3 ,)")
+          escreva("2. Boné Casual       (No carrinho: ", qtd_carrinho_prod2, "\n")
 
-                            
-              {
-                         estoque_prod2 = estoque_prod2 + qtd_carrinho_prod2
-                         qtd_carrinho_prod2 = 0
-                        escreva("Boné Casual removido do carrinho!")
-               }
-                   {
-                         estoque_prod3 = estoque_prod3 + qtd_carrinho_prod3
-                           qtd_carrinho_prod3 = 0 
-                           escreva("Tênis de Corrida removido do carrinho!")
-                   }
-                   senao {
-                           escreva("Opção inválida!")
-                   }
-                         escreva("Pressione ENTER para voltar ao menu...")
-			                    leia(tecla_pausa)
-			            pare
+          escreva("3. Tênis de Corrida (No carrinho: ", qtd_carrinho_prod3, "\n")
 
-		             caso 0:
-			              limpa()
-			                    escreva("Encerrando seleção de itens e indo para o pagamento...")
-			             pare
+          escreva("Escolha o item que deseja remover totalmente: \n")
+          leia(opcao_crud)
 
-		           caso contrario:
-			             limpa()
-			                 escreva("Opção inválida! Escolha uma das opções do menu.")
 
-		                 	escreva("Pressione ENTER para continuar...")
-                       Leia(tecla_puasa)
-    pare
+          se (opcao_crud == 1) {
+            estoque_prod1 = estoque_prod1 + qtd_carrinho_prod1
+            qtd_carrinho_prod1 = 0
+            escreva("Camisa Esportiva removida do carrinho!\n")
+          }
+          senao se (opcao_crud == 2) {
+            estoque_prod2 = estoque_prod2 + qtd_carrinho_prod2
+            qtd_carrinho_prod2 = 0
+            escreva("Boné Casual removido do carrinho!\n")
+          }
+          senao se (opcao_crud == 3) {
+            estoque_prod3 = estoque_prod3 + qtd_carrinho_prod3
+            qtd_carrinho_prod3 = 0
+            escreva("Tênis de Corrida removido do carrinho!\n")
+          }
+          senao {
+            escreva("Opção inválida!\n")
+          }
 
-    }
-  }
-                 // CALCULAR VALOR TOTAL DO CARRINHO
-                     valor_total_bruto = (qtd_carrinho_prod1 * preco_prod1) +
-                      (qtd_carrinho_prod2 * preco_prod2) +
-                      (qtd_carrinho_prod3 * preco_prod3) +
 
-                // 2. ETAPA DE PAGAMENTO
-                    limpa ( )
-                     se (valor_total_bruto > 0)
-  {
-                     escreva("--- FORMA DE PAGAMENTO---")
-                     escreva("
-                    1. Pagamento via PIX (10% de desconto)")
-                     escreva("
-                        2. Cartoo de Cred ito (Valor normal)")
-                           escreva("
-                       Escolha a forma de pagamento: ")
-                            leia(opcao_pagamento)
-                {
-                        caso 1:
-                      valor_desconto = valor_total_bruto * 0.10
-                      valor_final = 0.0
-                      pare
-                      caso 2:
-                      valor_desconto = 0.0
-                      valor_final = valor_total_bruto
-                      pare
-                      caso contratio:
-                         escreva("
-  opcao invalida! Processando valor normal.
+          escreva("Pressione ENTER para voltar ao menu...\n")
+          leia(tecla_pausa)
+          pare
 
-    ")
-      valor_desconto=0.0
-      valor_Final=Valor_total_bruto
-      pare
+
+        caso 0:
+          limpa()
+          escreva("Encerrando seleção de itens e indo para o pagamento...\n")
+          pare
+
+
+        caso contrario:
+          limpa()
+          escreva("Opção inválida! Escolha uma das opções do menu.\n")
+          escreva("Pressione ENTER para continuar...\n")
+          leia(tecla_pausa)
+          pare
+      
       }
+
+       // CALCULAR VALOR TOTAL DO CARRINHO
+      valor_total_bruto = (qtd_carrinho_prod1 * preco_prod1) + (qtd_carrinho_prod2 * preco_prod2) + (qtd_carrinho_prod3 * preco_prod3)
+
+
+      // 2. ETAPA DE PAGAMENTO
+      limpa()
+      se (valor_total_bruto > 0)
+      {
+        escreva("--- FORMA DE PAGAMENTO ---\n")
+
+        escreva("1. Pagamento via PIX (10% de desconto)\n")
+
+        escreva("2. Cartão de Crédito (Valor normal)\n")
+
+        escreva("Escolha a forma de pagamento: \n")
+
+      leia(opcao_pagamento)
+
+
+      escolha (opcao_pagamento)
+      {
+        caso 1:  
+          valor_desconto = valor_total_bruto * 0.10
+          valor_final = valor_total_bruto - valor_desconto
+          pare
+
+
+        caso 2:
+          valor_desconto = 0.0
+          valor_final = valor_total_bruto
+          pare
+
+
+        caso contrario:
+          escreva("Opção inválida! Processando valor normal.\n")
+          valor_desconto = 0.0
+          valor_final = valor_total_bruto
+          pare
+      }
+
+
       // 3. NOTA FISCAL DETALHADA
       limpa()
-     escreva("==================================
- ")
-     escreva("NOTA FISCAL - LOJA VIRTUAL
- ")
-     escreva("==================================
-  ")
-     escreva("itens comprados:
-  ")
-   se (qtd_carrinho_prod1 > 0) {
-       escreva("- "),qtd_carrinho_prod1, "x Camisa Esportiva = R$ "qtd_carrinho_p
-   }
+      escreva("=========================================\n")
 
-  }
-    }
-  se (qtd_carrinho_prod2 > 0){
-    escreva("-", qtd_carrinho_prod2, "x bone casual = R$ ", (qtd_carrinho_prod2))
-  }
-  }
+      escreva(" NOTA FISCAL - LOJA VIRTUAL \n")
 
+      escreva("=========================================\n")
+
+      escreva("Itens comprados:\n")
+
+
+      se (qtd_carrinho_prod1 > 0) {
+        escreva("- \n", qtd_carrinho_prod1, "x Camisa Esportiva = R$ \n", (qtd_carrinho_prod1 * preco_prod1))
+      }
+      se (qtd_carrinho_prod2 > 0) {
+        escreva("- \n", qtd_carrinho_prod2, "x Boné Casual = R$ \n", (qtd_carrinho_prod2 * preco_prod2))
+      }
+      se (qtd_carrinho_prod3 > 0) {
+        escreva("- \n", qtd_carrinho_prod3, "x Tênis de Corrida = R$ \n", (qtd_carrinho_prod3 * preco_prod3))
+      }
+
+
+      escreva("-----------------------------------------\n")
+
+      escreva("Valor total bruto: R$ ", valor_total_bruto, "\n")
+
+      escreva("Desconto aplicado: R$ ", valor_desconto, "\n")
+
+      escreva("Valor final a pagar: R$ ", valor_final, "\n")
+
+      escreva("=========================================\n")
+
+       escreva("Obrigado por comprar conosco!\n")
+     }
+      senao
+      {
+       escreva("Carrinho vazio. Compra cancelada.\n")
+      }
+  }
+}
+}
