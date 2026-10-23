@@ -33,60 +33,74 @@ programa {
       // Limpa a tela a cada iteração para manter o menu organizado
       limpa()
 
-      escreva("=== BEM VINDO À NOSSA LOJA VIRTUAL ===")
-
-      escreva("------------------------------------------")
-      escreva("MENU PRINCIPAL")
-       escreva("1. Ver Produtos e Adicionar ao Carrinho (CREATE)")
-
-
-escreva("2. Ver Meus Itens no Carrinho (READ)")
-
-
-escreva("3. Alterar Quantidae no Carrinho (UPDATE)")
-
-
-escreva("4.Remover Item do Carrinho (DELETE)")
+     escreva("=== BEM-VINDO À NOSSA LOJA VIRTUAL ===\n")
+      escreva("------------------------------------\n")
+      escreva("MENU PRINCIPAL\n")
+      escreva("1. Ver Produtos e Adicionar ao Carrinho (CREATE)\n")
+      escreva("2. Ver Meus Itens no Carrinho (READ)\n")
+      escreva("3. Alterar Quantidade no Carrinho (UPDATE)\n")
+      escreva("4. Remover Item do Carrinho (DELETE)\n")
+      escreva("0. Finalizar Compra e Ir ao Pagamento\n")
+      escreva("Escolha uma opção: \n")
+      leia(opcao_menu_principal)
 
 
-escreva("0. Finalizar Compra e Ir ao Pagamento ")
+      escolha (opcao_menu_principal)
+      {
+        // ===================================================
+        // C - CREATE (Adicionar Itens ao Carrinho)
+        // ===================================================
+        caso 1:
+          limpa()
+          escreva("--- CATÁLOGO DE PRODUTOS ---\n")
+          escreva("1. Camisa Esportiva (Estoque: ", estoque_prod1, ") - R$ ", preco_prod1, "\n")
+          escreva("2. Boné Casual       (Estoque: ", estoque_prod2, ") - R$ ", preco_prod2, "\n")
+          escreva("3. Tênis de Corrida (Estoque: ", estoque_prod3, ") - R$ ", preco_prod3, "\n")
+          escreva("Escolha o produto que deseja adicionar: \n")
+          leia(opcao_crud)
 
 
-escreva("Escolha uma opção: ")
-leia(opcao_menu_principal)
+          escreva("Digite a quantidade desejada: \n ")
+          leia(quantidade_temp)
 
 
-escolha(opcao_menu_principal)
-{
+          se (opcao_crud == 1) {
+            se (quantidade_temp > 0 e quantidade_temp <= estoque_prod1) {
+              qtd_carrinho_prod1 = qtd_carrinho_prod1 + quantidade_temp
+              estoque_prod1 = estoque_prod1 - quantidade_temp
+              escreva("Item adicionado ao carrinho com sucesso! \n ")
+            } senao {
+              escreva("Quantidade inválida ou estoque insuficiente!\n")
+            }
+          } senao se (opcao_crud == 2) {
+            se (quantidade_temp > 0 e quantidade_temp <= estoque_prod2) {
+              qtd_carrinho_prod2 = qtd_carrinho_prod2 + quantidade_temp
+              estoque_prod2 = estoque_prod2 - quantidade_temp
+              escreva("Item adicionado ao carrinho com sucesso!\n")
+            } senao {
+              escreva("Quantidade inválida ou estoque insuficiente!\n")
+            }
+          }
+          senao se (opcao_crud == 3)
+          {
+            se (quantidade_temp > 0 e quantidade_temp <= estoque_prod3) {
+              qtd_carrinho_prod3 = qtd_carrinho_prod3 + quantidade_temp
+              estoque_prod3 = estoque_prod3 - quantidade_temp
+              escreva("Item adicionado ao carrinho com sucesso!\n")
+            } senao {
+              escreva("Quantidade inválida ou estoque insuficiente!\n")
+            }
+          }
+          
+          senao {
+            escreva("Produto inválido!\n")
+          }
 
-     // ====================================================
-     // C - CREATE (Adicionar Itens ao Carrinho)
-     // ====================================================
 
-     caso 1:
+          escreva("Pressione ENTER para voltar ao menu...\n")
 
-  limpa()
-
-escreva("--- CATÁLOGO DE PRODUTOS ---")
-
-escreva("\n1. Camisa Esportiva (Estoque: ", estoque_prod1, ") R$ ", preco_prod1)
-escreva("\n2. Boné Casual (Estoque: ", estoque_prod2, ") R$ ", preco_prod2)
-escreva("\n3. Tênis de Corrida (Estoque: ", estoque_prod3, ") R$ ", preco_prod3)
-
-escreva("\nEscolha o produto que deseja adicionar: ")
-
-  leia(opcao_crud)
-
-  escreva ("Digite a quantidade desejada: ")
-  leia (quantidade_temp)
-  se (opcao_crud = 1)
-  {
-  se (quantidade_temp > 0 e quantidade_temp <= estoque_prod1) {
-    }
-
-  escreva ("Pressione ENTER para voltar ao menu...")
-  leia(tecla_pausa)
-  pare
+          leia(tecla_pausa)
+          pare
 
   //=================================================
   // U UPDATE (Atualizar Quantidade no Carrinho)
